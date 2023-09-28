@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <meta name="view port" content="with=device-width, initial-scale = 1.0" />
+    <title>NEETHI</title>
+    <link rel="stylesheet" href="{% static '/home/neeti.css' %}" />
+  </head>
+  <body>
+    <section class="header">
+      <nav>
+        <a href="neeti.html"><img src="{% static '/home/logo.png' %}" /></a>
+        <div class="nav-links">
+          <ul>
+            <li><a href="">FIND A LAWYER</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">LOGOUT</a></li>
+            {% endif %} {% if not user.is_authenticated %}
+            <li><a href="{% url 'login' %}">LOGIN</a></li>
+            <li><a href="{% url 'login' %}">JOIN US</a></li>
+            {% endif %}
+            <li><a href="">ABOUT</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="text-box">
+        <h1>FIND YOUR BEST LAWYER</h1>
+        <p>Choose from over 10,000 lawyers across 700+ cities in India</p>
+      </div>
+    </section>
+    <!---------- course------->
+
+    <section class="top-rate">
+      <h1>Top-rated lawyers in India</h1>
+      <p>over 600+ lawyers online</p>
+      <div class="row">
+        <div class="rated-col">
+          <h3>Family Law</h3>
+          <img
+            src="{% static '/home/family.jpeg' %}"
+            style="height: auto; width: 200px"
+          />
+
+          <p></p>
+        </div>
+
+        <div class="rated-col">
+          <h3>Criminal Law</h3>
+          <img
+            src="{% static '/home/criminal.png' %}"
+            style="height: auto; width: 200px"
+          />
+          <p></p>
+        </div>
+
+        <div class="rated-col">
+          <h3>Corporate Law</h3>
+          <img
+            src="{% static '/home/corporate.jpg' %}"
+            style="height: auto; width: 200px"
+          />
+          <p></p>
+        </div>
+      </div>
+    </section>
+    <!------------ testimonials----->
+
+    <section class="testimonials">
+      <h1>What our customers say</h1>
+      <div class="row">
+        <div class="testimonials-col">
+          <img src="{% static '/home/president.jpeg' %}" />
+          <div>
+            <h3>users name</h3>
+            <p>content</p>
+          </div>
+        </div>
+        <div class="testimonials-col">
+          <img src="{% static '/home/secretary.jpg' %}" />
+          <div>
+            <h3>users name</h3>
+            <p>content</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-------- call to action------->
+    {% if not user.is_authenticated %}
+    <section class="cta">
+      <div class="jnw">
+        <h1>Join to access our facilities</h1>
+        <a href="{% url 'register' %}"
+          ><button type="button">JOIN NOW</button></a
+        >
+      </div>
+    </section>
+    {% endif %}
+  </body>
+</html>
+
+
