@@ -1,0 +1,4 @@
+django==4.2.5
+django-crispy-forms==4.8.0
+crispy-forms-foundation==1.0.1
+crispy-bulma==0.10.0
